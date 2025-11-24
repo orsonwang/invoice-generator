@@ -1,0 +1,4 @@
+node_modules/
+.playwright-mcp/
+*.pdf
+test-output.html

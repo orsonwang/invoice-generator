@@ -1,0 +1,17 @@
+{
+  "name": "einvoice-generator",
+  "version": "1.0.0",
+  "description": "台灣電子發票證明聯產生器 (格式二)",
+  "main": "index.js",
+  "type": "module",
+  "bin": {
+    "einvoice": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "puppeteer": "^24.0.0",
+    "commander": "^11.0.0"
+  }
+}

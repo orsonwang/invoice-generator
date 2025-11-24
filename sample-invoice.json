@@ -1,0 +1,28 @@
+{
+  "invoiceNumber": "TK45937062",
+  "invoiceDate": "2025-10-13",
+  "formatCode": "25",
+  "randomCode": "",
+  "buyer": {
+    "name": "永豐商業銀行股份有限公司零售金融處",
+    "taxId": "25592760",
+    "address": "臺北市中正區光復里博愛路１７號６樓"
+  },
+  "seller": {
+    "name": "雲杉科技股份有限公司",
+    "taxId": "52449873",
+    "address": "台北市信義區基隆路一段172巷1號3樓"
+  },
+  "items": [
+    {
+      "name": "電子票證連線系統114年第3季維護",
+      "quantity": 1,
+      "unitPrice": 71886,
+      "remark": "2025Q3"
+    }
+  ],
+  "taxType": "taxable",
+  "salesAmount": 71886,
+  "taxAmount": 3594,
+  "totalAmount": 75480
+}
