@@ -19,6 +19,12 @@
       "quantity": 1,
       "unitPrice": 71886,
       "remark": "2025Q3"
+    },
+    {
+      "name": "電子票證連線系統114年第3季維護",
+      "quantity": 1,
+      "unitPrice": 71886,
+      "remark": "2025Q3"
     }
   ],
   "taxType": "taxable",
