@@ -266,15 +266,11 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td class="items-cell text-left">{{itemsContent}}</td>
-                        <td class="items-cell text-center">
-                            {{quantitiesContent}}
+                        <td colspan="5" class="items-cell" style="padding: 0px;">
+                            <table style="width: 100%; border-collapse: collapse; line-height: 1.6;">
+                                {{itemsTableRows}}
+                            </table>
                         </td>
-                        <td class="items-cell text-right">{{pricesContent}}</td>
-                        <td class="items-cell text-right">
-                            {{amountsContent}}
-                        </td>
-                        <td class="items-cell text-left">{{remarksContent}}</td>
                     </tr>
                     <tr>
                         <td colspan="3" class="summary-label-cell">

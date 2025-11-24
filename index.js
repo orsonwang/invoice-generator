@@ -58,20 +58,19 @@ function generateHTML(data) {
   const templatePath = path.join(__dirname, "template.html");
   let html = fs.readFileSync(templatePath, "utf-8");
 
-  // 產生明細內容（垂直排列在同一格內）
-  let itemsContent = "";
-  let quantitiesContent = "";
-  let pricesContent = "";
-  let amountsContent = "";
-  let remarksContent = "";
-
+  // 產生明細表格行（每個商品一行，無分隔線）
+  let itemsTableRows = "";
   for (const item of data.items) {
     const amount = item.quantity * item.unitPrice;
-    itemsContent += `${item.name}<br>`;
-    quantitiesContent += `${item.quantity}<br>`;
-    pricesContent += `${formatNumber(item.unitPrice)}<br>`;
-    amountsContent += `${formatNumber(amount)}<br>`;
-    remarksContent += `${item.remark || ""}<br>`;
+    itemsTableRows += `
+      <tr>
+        <td style="width: 32%; text-align: left; border-top:none;border-bottom:none;border-left:none;">${item.name}</td>
+        <td style="width: 8%; text-align: center; border-top:none;border-bottom:none;border-left:none;">${item.quantity}</td>
+        <td style="width: 15%; text-align: right; border-top:none;border-bottom:none;border-left:none;">${formatNumber(item.unitPrice)}</td>
+        <td style="width: 15%; text-align: right; border-top:none;border-bottom:none;border-left:none;">${formatNumber(amount)}</td>
+        <td style="width: 30%; text-align: left; border-top:none;border-bottom:none;border-left:none;border-right:none;">${item.remark || ""}</td>
+      </tr>
+    `;
   }
 
   // 課稅類別
@@ -91,11 +90,7 @@ function generateHTML(data) {
     "{{buyerAddress}}": data.buyer.address,
     "{{formatCode}}": data.formatCode,
     "{{randomCode}}": data.randomCode || "",
-    "{{itemsContent}}": itemsContent,
-    "{{quantitiesContent}}": quantitiesContent,
-    "{{pricesContent}}": pricesContent,
-    "{{amountsContent}}": amountsContent,
-    "{{remarksContent}}": remarksContent,
+    "{{itemsTableRows}}": itemsTableRows,
     "{{salesAmount}}": formatNumber(data.salesAmount),
     "{{taxAmount}}": formatNumber(data.taxAmount),
     "{{totalAmount}}": formatNumber(data.totalAmount),
