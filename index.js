@@ -58,6 +58,9 @@ function generateHTML(data) {
   const templatePath = path.join(__dirname, "template.html");
   let html = fs.readFileSync(templatePath, "utf-8");
 
+  // 品項區最大行數（根據 630px 高度和 line-height 1.6 計算）
+  const MAX_ITEM_ROWS = 16;
+
   // 產生明細表格行（每個商品一行，無分隔線）
   let itemsTableRows = "";
   for (const item of data.items) {
@@ -69,6 +72,20 @@ function generateHTML(data) {
         <td style="width: 15%; text-align: right; border-top:none;border-bottom:none;border-left:none;">${formatNumber(item.unitPrice)}</td>
         <td style="width: 15%; text-align: right; border-top:none;border-bottom:none;border-left:none;">${formatNumber(amount)}</td>
         <td style="width: 30%; text-align: left; border-top:none;border-bottom:none;border-left:none;border-right:none;">${item.remark || ""}</td>
+      </tr>
+    `;
+  }
+
+  // 補滿空白列
+  const emptyRowsNeeded = MAX_ITEM_ROWS - data.items.length;
+  for (let i = 0; i < emptyRowsNeeded; i++) {
+    itemsTableRows += `
+      <tr>
+        <td style="width: 32%; text-align: left; border-top:none;border-bottom:none;border-left:none;">&nbsp;</td>
+        <td style="width: 8%; text-align: center; border-top:none;border-bottom:none;border-left:none;">&nbsp;</td>
+        <td style="width: 15%; text-align: right; border-top:none;border-bottom:none;border-left:none;">&nbsp;</td>
+        <td style="width: 15%; text-align: right; border-top:none;border-bottom:none;border-left:none;">&nbsp;</td>
+        <td style="width: 30%; text-align: left; border-top:none;border-bottom:none;border-left:none;border-right:none;">&nbsp;</td>
       </tr>
     `;
   }
