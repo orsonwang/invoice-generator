@@ -1,34 +1,34 @@
 {
-  "invoiceNumber": "TK45937062",
-  "invoiceDate": "2025-10-13",
+  "invoiceNumber": "TK45937999",
+  "invoiceDate": "2027-10-13",
   "formatCode": "25",
   "randomCode": "",
-  "buyer": {
-    "name": "永豐商業銀行股份有限公司零售金融處",
-    "taxId": "25592760",
-    "address": "臺北市中正區光復里博愛路１７號６樓"
-  },
   "seller": {
     "name": "雲杉科技股份有限公司",
     "taxId": "52449873",
     "address": "台北市信義區基隆路一段172巷1號3樓"
   },
+  "buyer": {
+    "name": "XXXX股份有限公司",
+    "taxId": "92760123",
+    "address": "臺北市中正區重慶南路１７號６樓"
+  },
   "items": [
     {
-      "name": "電子票證連線系統114年第3季維護",
+      "name": "韌體安全保護系統",
       "quantity": 1,
-      "unitPrice": 71886,
+      "unitPrice": 7188601,
       "remark": "2025Q3"
     },
     {
-      "name": "電子票證連線系統114年第3季維護",
+      "name": "點對點加密系統",
       "quantity": 1,
-      "unitPrice": 71886,
+      "unitPrice": 7188601,
       "remark": "2025Q3"
     }
   ],
   "taxType": "taxable",
-  "salesAmount": 71886,
-  "taxAmount": 3594,
-  "totalAmount": 75480
+  "salesAmount": 7188601,
+  "taxAmount": 35942,
+  "totalAmount": 7548023
 }
