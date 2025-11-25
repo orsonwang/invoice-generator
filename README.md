@@ -31,12 +31,33 @@
 
 ## 安裝（Go 版本）
 
-### 系統需求
+### 方法一：下載預編譯執行檔（推薦）
 
+從 [GitHub Releases](https://github.com/orsonwang/invoice-generator/releases) 下載適合您平台的版本：
+
+- **Linux (x64)**: `invoice-generator-v0.1.0-linux-amd64.tar.gz`
+- **Windows (x64)**: `invoice-generator-v0.1.0-windows-amd64.zip`
+- **macOS Intel**: `invoice-generator-v0.1.0-darwin-amd64.tar.gz`
+- **macOS Apple Silicon**: `invoice-generator-v0.1.0-darwin-arm64.tar.gz`
+
+下載後解壓縮即可使用，無需安裝任何依賴。
+
+```bash
+# Linux / macOS
+tar -xzf invoice-generator-v0.1.0-linux-amd64.tar.gz
+cd invoice-generator-v0.1.0-linux-amd64
+./invoice-generator -i sample-invoice.json -o invoice.pdf
+
+# Windows
+# 解壓縮 zip 檔案後
+invoice-generator.exe -i sample-invoice.json -o invoice.pdf
+```
+
+### 方法二：從原始碼編譯
+
+**系統需求**：
 - Go 1.19 或以上版本
 - Chrome 或 Chromium 瀏覽器（chromedp 會自動下載）
-
-### 安裝步驟
 
 ```bash
 # 複製本專案（Go 版本分支）
@@ -48,11 +69,11 @@ go build -o invoice-generator main.go
 
 # 或直接執行（不編譯）
 go run main.go -i sample-invoice.json -o invoice.pdf
+
+# 或使用 Makefile 編譯（支援跨平台編譯）
+make build          # 編譯當前平台
+make release        # 編譯所有平台並打包
 ```
-
-### 下載預編譯執行檔
-
-（未來會提供 Releases）
 
 ## 使用方式
 
