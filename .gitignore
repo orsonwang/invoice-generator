@@ -2,4 +2,6 @@ node_modules/
 .playwright-mcp/
 *.pdf
 test-output.html
+invoice-go.html
 CLAUDE.md
+invoice-generator
