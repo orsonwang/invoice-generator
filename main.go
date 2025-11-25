@@ -140,15 +140,20 @@ func generateHTML(invoice Invoice, templatePath string) (string, error) {
 	// 補滿空白列
 	emptyRowsNeeded := maxItemRows - len(invoice.Items)
 	for i := 0; i < emptyRowsNeeded; i++ {
-		itemsRows.WriteString(`
+		// 最後一行需要底部框線
+		bottomBorder := "none"
+		if i == emptyRowsNeeded-1 {
+			bottomBorder = "1px solid #000"
+		}
+		itemsRows.WriteString(fmt.Sprintf(`
       <tr>
-        <td style="width: 32%; text-align: left; border-top:none;border-bottom:none;border-left:none;">&nbsp;</td>
-        <td style="width: 8%; text-align: center; border-top:none;border-bottom:none;border-left:none;">&nbsp;</td>
-        <td style="width: 15%; text-align: right; border-top:none;border-bottom:none;border-left:none;">&nbsp;</td>
-        <td style="width: 15%; text-align: right; border-top:none;border-bottom:none;border-left:none;">&nbsp;</td>
-        <td style="width: 30%; text-align: left; border-top:none;border-bottom:none;border-left:none;border-right:none;">&nbsp;</td>
+        <td style="width: 32%%; text-align: left; border-top:none;border-bottom:%s;border-left:none;">&nbsp;</td>
+        <td style="width: 8%%; text-align: center; border-top:none;border-bottom:%s;border-left:none;">&nbsp;</td>
+        <td style="width: 15%%; text-align: right; border-top:none;border-bottom:%s;border-left:none;">&nbsp;</td>
+        <td style="width: 15%%; text-align: right; border-top:none;border-bottom:%s;border-left:none;">&nbsp;</td>
+        <td style="width: 30%%; text-align: left; border-top:none;border-bottom:%s;border-left:none;border-right:none;">&nbsp;</td>
       </tr>
-    `)
+    `, bottomBorder, bottomBorder, bottomBorder, bottomBorder, bottomBorder))
 	}
 
 	// 準備模板資料
