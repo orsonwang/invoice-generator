@@ -4,22 +4,6 @@
 
 台灣電子發票證明聯產生工具，依照財政部電子發票實施作業要點「格式二」規範，將 JSON 格式的發票資料轉換為標準 A4 格式的 PDF 電子發票。
 
-## 版本說明
-
-本專案提供兩種實作版本：
-
-### Go 版本（推薦，golang-version 分支）
-- ✅ **編譯成單一執行檔**，無需安裝 Node.js 或其他依賴
-- ✅ **效能更好**，啟動快速、記憶體占用低
-- ✅ **跨平台**，支援 Windows、macOS、Linux
-- ✅ **使用 chromedp** 直接操作 Chrome DevTools Protocol
-
-### Node.js 版本（master 分支）
-- 使用 Puppeteer + Node.js
-- 適合已有 Node.js 環境的專案
-
-**建議使用 Go 版本**，以下說明以 Go 版本為主。
-
 ## 功能特色
 
 - 符合財政部電子發票「格式二」規範
@@ -28,8 +12,10 @@
 - 自動計算金額並轉換為中文大寫
 - 品項區自動填充空白列至固定行數
 - 命令列介面 (CLI)，方便整合至自動化流程
+- 編譯成單一執行檔，無需安裝依賴
+- 跨平台支援 Windows、macOS、Linux
 
-## 安裝（Go 版本）
+## 安裝
 
 ### 方法一：下載預編譯執行檔（推薦）
 
@@ -60,8 +46,8 @@ invoice-generator.exe -i sample-invoice.json -o invoice.pdf
 - Chrome 或 Chromium 瀏覽器（chromedp 會自動下載）
 
 ```bash
-# 複製本專案（Go 版本分支）
-git clone -b golang-version https://github.com/orsonwang/invoice-generator.git
+# 複製本專案
+git clone https://github.com/orsonwang/invoice-generator.git
 cd invoice-generator
 
 # 編譯成執行檔
@@ -168,17 +154,11 @@ go run main.go -i <輸入JSON檔案> -o <輸出PDF檔案>
 
 ## 技術說明
 
-### Go 版本技術棧
+### 技術棧
 
 - **Go** - 執行環境
 - **chromedp** - Chrome DevTools Protocol 客戶端
 - **html/template** - HTML 模板引擎
-
-### Node.js 版本技術棧（master 分支）
-
-- **Node.js** - 執行環境
-- **Puppeteer** - HTML 轉 PDF
-- **Commander** - 命令列介面
 
 ### 設計特點
 
@@ -192,7 +172,6 @@ go run main.go -i <輸入JSON檔案> -o <輸出PDF檔案>
 
 ## 專案結構
 
-### Go 版本（golang-version 分支）
 ```
 .
 ├── main.go               # 主程式
@@ -200,39 +179,19 @@ go run main.go -i <輸入JSON檔案> -o <輸出PDF檔案>
 ├── sample-invoice.json   # 範例資料
 ├── go.mod                # Go 模組定義
 ├── go.sum                # Go 依賴鎖定檔
-├── LICENSE               # MIT 授權條款
-└── README.md            # 本說明文件
+├── Makefile              # 編譯腳本
+├── LICENSE               # Apache 2.0 授權條款
+└── README.md             # 本說明文件
 ```
-
-### Node.js 版本（master 分支）
-```
-.
-├── index.js              # 主程式
-├── template.html         # 發票 HTML 模板
-├── sample-invoice.json   # 範例資料
-├── package.json          # 套件設定
-├── LICENSE               # MIT 授權條款
-└── README.md            # 本說明文件
-```
-
-## 效能比較
-
-| 項目 | Go 版本 | Node.js 版本 |
-|------|---------|-------------|
-| 啟動時間 | ~0.5s | ~2s |
-| 記憶體占用 | ~80MB | ~150MB |
-| 執行檔大小 | ~20MB（單一檔案） | 需要 node_modules（~200MB） |
-| 安裝依賴 | 無需安裝 | 需要 npm/pnpm install |
 
 ## 授權
 
-MIT License - 詳見 [LICENSE](LICENSE) 檔案
+Apache License 2.0 - 詳見 [LICENSE](LICENSE) 檔案
 
 ## 相關資源
 
 - [財政部電子發票實施作業要點](https://www.etax.nat.gov.tw/)
 - [chromedp 文件](https://github.com/chromedp/chromedp)
-- [Puppeteer 文件](https://pptr.dev/) (Node.js 版本)
 
 ## 問題回報
 
